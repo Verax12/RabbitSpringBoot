@@ -1,0 +1,8 @@
+com\example\Domain\DTO\PagamentoDTO$PagamentoDTOBuilder.class
+com\example\amqp\AMQPConfiguration.class
+com\example\service\PagamentoService.class
+com\example\RestServiceApplication.class
+com\example\controller\PagamentoController.class
+com\example\amqp\PagamentoListener.class
+com\example\Domain\DTO\PagamentoDTO.class
+com\example\controller\PagamentoListenerController.class

@@ -1,0 +1,7 @@
+C:\Repos\RabbitSpringBoot\src\main\java\com\example\amqp\PagamentoListener.java
+C:\Repos\RabbitSpringBoot\src\main\java\com\example\Domain\DTO\PagamentoDTO.java
+C:\Repos\RabbitSpringBoot\src\main\java\com\example\RestServiceApplication.java
+C:\Repos\RabbitSpringBoot\src\main\java\com\example\controller\PagamentoController.java
+C:\Repos\RabbitSpringBoot\src\main\java\com\example\service\PagamentoService.java
+C:\Repos\RabbitSpringBoot\src\main\java\com\example\controller\PagamentoListenerController.java
+C:\Repos\RabbitSpringBoot\src\main\java\com\example\amqp\AMQPConfiguration.java
