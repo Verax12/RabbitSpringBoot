@@ -1,8 +1,7 @@
-package com.example.amqp;
+package com.example.listener;
 
 import com.example.Domain.DTO.PagamentoDTO;
 import com.example.service.PagamentoService;
-import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,10 +11,12 @@ public class PagamentoListener {
     @Autowired
     private PagamentoService pagamentoService;
 
-    @RabbitListener(queues = "pagamento.concluido")
+    @RabbitListener(queues = "pagamento.detalhes-pedido")
     public void getMessage(PagamentoDTO pagamentoMessage){
         pagamentoService.ChangePaymentStatus(pagamentoMessage);
         String message = """
+                Pagamento Listner 
+                -----------------------------
                 Número do pedido: %s
                 Valor %s
                 Status: %s
@@ -25,4 +26,5 @@ public class PagamentoListener {
 
         System.out.println("Mensagem Recebida: " + message);
     }
+
 }

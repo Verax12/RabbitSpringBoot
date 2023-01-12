@@ -22,7 +22,7 @@ public class PagamentoController {
     private  PagamentoService pagamentoService;
     @PostMapping
     public ResponseEntity<String> PostPagamento(){
-        rabbitTemplate.convertAndSend("pagamento.concluido", pagamentoService.GenerateMockPagamentoDTO());
+        rabbitTemplate.convertAndSend("pagamento.ex","", pagamentoService.GenerateMockPagamentoDTO());
         return new ResponseEntity<>("Sucesso", HttpStatus.OK);
     }
 
