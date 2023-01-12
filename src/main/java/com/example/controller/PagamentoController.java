@@ -4,6 +4,7 @@ import com.example.service.PagamentoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +21,12 @@ public class PagamentoController {
     private RabbitTemplate rabbitTemplate;
     @Autowired
     private  PagamentoService pagamentoService;
+    @Value("${spring.pagamento.ex}")
+    private String exchangeName;
+
     @PostMapping
     public ResponseEntity<String> PostPagamento(){
-        rabbitTemplate.convertAndSend("pagamento.ex","", pagamentoService.GenerateMockPagamentoDTO());
+        rabbitTemplate.convertAndSend(exchangeName,"", pagamentoService.GenerateMockPagamentoDTO());
         return new ResponseEntity<>("Sucesso", HttpStatus.OK);
     }
 

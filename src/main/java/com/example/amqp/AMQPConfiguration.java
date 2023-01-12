@@ -3,6 +3,7 @@ package com.example.amqp;
 import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -11,6 +12,9 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 @Configuration
 public class AMQPConfiguration {
+    @Value("${spring.pagamento.ex}")
+    private String exchangeName;
+
 //    @Bean
 //    public Queue criaFila(){
 //        // return  new Queue("pagamento.concluido", false);
@@ -20,7 +24,7 @@ public class AMQPConfiguration {
 
     @Bean
     public FanoutExchange fanoutExchange(){
-        return new FanoutExchange("pagamento.ex");
+        return new FanoutExchange(exchangeName);
     }
 
     @Bean
